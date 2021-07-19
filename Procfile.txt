@@ -1,2 +1,2 @@
 web: sh setup.sh && streamlit run 1620Dashboard.py
-web: gunicorn ivytasks_project.wsgi --log-file -
+web: gunicorn --log-file -
