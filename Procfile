@@ -1,1 +1,1 @@
-web:: sh setup.sh && streamlit run 1620Dashboard.py
+web: sh setup.sh && python run 1620Dashboard.py
