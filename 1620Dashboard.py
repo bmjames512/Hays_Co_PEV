@@ -26,7 +26,7 @@ EPVFrame = pd.DataFrame.from_dict(EC, orient='index')
 
 slt.title('Hays County Early Voting Data Analysis')
 
-Cities = np.array(['None','Wimberley', 'Kyle', 'Buda', 'San Marcos'])
+Cities = np.array(['Coming Soon','Wimberley', 'Kyle', 'Buda', 'San Marcos'])
 
 db1, db2 = slt.beta_columns(2)
 with db1:
@@ -82,13 +82,9 @@ dfc2016 = pd.merge(dfc2018, Lba1, how='outer')
 
 bigchart= dfc2016[dfc2016["Age"] > sd1]
 
-if sd2 == 'None':
-    bigchart = bigchart
-else:
-    bigchart= dfc2016[dfc2016["City"] == sd2]
+AgeCV = pd.Series(bigchart.iloc[:,5])
+slt.bar_chart(AgeCV.value_counts(normalize=True))
 
-slt.title('Frame')
-slt.dataframe(bigchart)
 
 slt.title('1. Primary Voters Became Younger in 2020')
 slt.write(
@@ -130,6 +126,3 @@ with col5:
 with col6:
     slt.header("2020 Top Zips")
     slt.dataframe(Zip20Top)
-
-
-slt.dataframe(dfc2016)
